@@ -1,0 +1,32 @@
+{
+  "42": {
+    "DappToken": [
+      "0x7A6707DF0B6191708d94a878d01edc2A41eFB646",
+      "0x743Bc64B4FE2e00C7fB266B6d9D374656dC44c47"
+    ],
+    "TokenFarm": [
+      "0x69C25a29806B7aAc516173b67e2cfe1A016dc715",
+      "0xAc392a915fa077E7BF35FB5534201a5c2071dd21"
+    ]
+  },
+  "dev": {
+    "DappToken": [
+      "0xd7D5267Da83e34FD37536b01bB4dCb86EEe7ccF1"
+    ],
+    "LinkToken": [
+      "0x0E63E57C5516269f3aD56fEb238aB5A32c52dA9B"
+    ],
+    "MockDAI": [
+      "0x0D56C5153d8a10580dde72345af9217FF69D7187"
+    ],
+    "MockV3Aggregator": [
+      "0x7e117F8d80aC2871d76CDB3a8bdC696a761E3bf6"
+    ],
+    "MockWETH": [
+      "0xf07E1d7dAe1B7A21243F908B5752C7750fdf7242"
+    ],
+    "TokenFarm": [
+      "0x097201C151BFF9dCAc848BCb2e261bCC7B5E40E8"
+    ]
+  }
+}
