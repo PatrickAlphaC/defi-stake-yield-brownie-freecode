@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ethersproject/units": "^5.4.0",
+    "@ethersproject/units": "^5.5.0",
     "@material-ui/core": "^4.12.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@testing-library/jest-dom": "^5.11.4",
@@ -13,7 +13,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "ethers": "^5.4.2",
+    "@usedapp/core": "^0.7.0",
+    "ethers": "^5.5.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
