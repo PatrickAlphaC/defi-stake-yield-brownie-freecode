@@ -19,9 +19,14 @@ def test_set_price_feed_contract():
     token_farm, dapp_token = deploy_token_farm_and_dapp_token()
     # Act
     price_feed_address = get_contract("eth_usd_price_feed")
-    token_farm.setPriceFeedContract(
-        dapp_token.address, price_feed_address, {"from": account}
-    )
+
+    # We don't have to call setPriceFeedContract() again, because it's already called
+    # for all tokens in dict_of_allowed_tokens when we call deploy_token_farm_and_dapp_token() 
+    # 
+    # token_farm.setPriceFeedContract(
+    #     dapp_token.address, price_feed_address, {"from": account}
+    # )
+
     # Assert
     assert token_farm.tokenPriceFeedMapping(dapp_token.address) == price_feed_address
     with pytest.raises(exceptions.VirtualMachineError):
