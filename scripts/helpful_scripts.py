@@ -117,7 +117,7 @@ def deploy_mocks(decimals=DECIMALS, initial_value=INITIAL_PRICE_FEED_VALUE):
     print("Deploying Mock WETH")
     weth_token = MockWETH.deploy({"from": account})
     print(f"Deployed to {weth_token.address}")
-
+# We didn't have this in the video, but it's a helpful script to have you issue the tokens!
     def issue_tokens():
         """You can call this function once you have deployed your TokenFarm contract to a live network
         and have users that have staked tokens.
