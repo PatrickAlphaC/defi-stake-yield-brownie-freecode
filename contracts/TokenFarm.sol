@@ -102,6 +102,20 @@ contract TokenFarm is Ownable {
         IERC20(_token).transfer(msg.sender, balance);
         stakingBalance[_token][msg.sender] = 0 ;
         uniqueTokensStaked[msg.sender] = uniqueTokensStaked[msg.sender] - 1;
+        // The code below fixes a problem not addressed in the video, where stakers could appear twice
+        // in the stakers array, receiving twice the reward.
+        if (uniqueTokensStaked[msg.sender] == 0) {
+            for (
+                uint256 stakersIndex = 0;
+                stakersIndex < stakers.length;
+                stakersIndex++
+            ) {
+                if (stakers[stakersIndex] == msg.sender) {
+                    stakers[stakersIndex] = stakers[stakers.length - 1];
+                    stakers.pop();
+                }
+            }
+        }
     }
 
     function updateUniqueTokensStaked(address _user, address _token) internal {
