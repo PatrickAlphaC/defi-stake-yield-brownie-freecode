@@ -117,24 +117,24 @@ def deploy_mocks(decimals=DECIMALS, initial_value=INITIAL_PRICE_FEED_VALUE):
     print("Deploying Mock WETH")
     weth_token = MockWETH.deploy({"from": account})
     print(f"Deployed to {weth_token.address}")
+    
 # We didn't have this in the video, but it's a helpful script to have you issue the tokens!
-    def issue_tokens():
-        """You can call this function once you have deployed your TokenFarm contract to a live network
-        and have users that have staked tokens.
-        
-        Note that it relies on get_contract, so be mindful to correctly configure your Token Farm contract
-        into brownie-config.yaml as well as the contract_to_mock dict as described in the get_contract docstring
+def issue_tokens():
+    """You can call this function once you have deployed your TokenFarm contract to a live network
+    and have users that have staked tokens.
 
-        Run this function with this command: `brownie run scripts/issue_tokens.py --network kovan`
+    Note that it relies on get_contract, so be mindful to correctly configure your Token Farm contract
+    into brownie-config.yaml as well as the contract_to_mock dict as described in the get_contract docstring
 
-            This function will:
-                - Print your account address and deployed TokenFarm contract address to confirm that you're using the right ones
-                - Call issueTokens on your deployed TokenFarm contract to issue the DAPP token reward to your users
-        """
-        account = get_account()
-        print(f"Issue Tokens called by: {account}")
-        token_farm = get_contract("TokenFarm")
-        print(f"TokenFarm contract called to issue tokens: {token_farm}")
-        tx = token_farm.issueTokens({"from": account})
-        tx.wait(1)
+    Run this function with this command: `brownie run scripts/issue_tokens.py --network kovan`
 
+        This function will:
+            - Print your account address and deployed TokenFarm contract address to confirm that you're using the right ones
+            - Call issueTokens on your deployed TokenFarm contract to issue the DAPP token reward to your users
+    """
+    account = get_account()
+    print(f"Issue Tokens called by: {account}")
+    token_farm = get_contract("TokenFarm")
+    print(f"TokenFarm contract called to issue tokens: {token_farm}")
+    tx = token_farm.issueTokens({"from": account})
+    tx.wait(1)
