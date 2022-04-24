@@ -21,8 +21,8 @@ def test_set_price_feed_contract():
     price_feed_address = get_contract("eth_usd_price_feed")
 
     # We don't have to call setPriceFeedContract() again, because it's already called
-    # for all tokens in dict_of_allowed_tokens when we call deploy_token_farm_and_dapp_token() 
-    # 
+    # for all tokens in dict_of_allowed_tokens when we call deploy_token_farm_and_dapp_token()
+    #
     # token_farm.setPriceFeedContract(
     #     dapp_token.address, price_feed_address, {"from": account}
     # )
@@ -133,3 +133,13 @@ def test_add_allowed_tokens():
     assert token_farm.allowedTokens(0) == dapp_token.address
     with pytest.raises(exceptions.VirtualMachineError):
         token_farm.addAllowedTokens(dapp_token.address, {"from": non_owner})
+
+
+def test_token_is_allowed():
+    if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+        pytest.skip("Only for local testing!")
+
+    token_farm, dapp_token = deploy_token_farm_and_dapp_token()
+
+    # Assert
+    assert token_farm.tokenIsAllowed(dapp_token.address) == True
