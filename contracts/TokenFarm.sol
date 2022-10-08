@@ -48,6 +48,10 @@ contract TokenFarm is Ownable {
 
     function getUserTotalValue(address _user) public view returns (uint256){
         uint256 totalValue = 0;
+
+        // A better solution for this would be to change the require for an if statement like the one in "getUserSingleTokenValue" function
+        // because if one user doesn't have tokens, the transaction will revert and the "issueTokens" function will stop.
+        // So, tokens will not be transfer for any user.
         require(uniqueTokensStaked[_user] > 0, "No tokens staked!");
         for (
             uint256 allowedTokensIndex = 0;
